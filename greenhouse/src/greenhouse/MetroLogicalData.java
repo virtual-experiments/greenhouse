@@ -14,9 +14,13 @@ public class MetroLogicalData
 {
     private static int[][][] weatherMatrix;
     
-    public static void readMetroLogicalData(final URL location, final String file) {
+    public static void readMetroLogicalData(final String filename) {
+    	URL url = MetroLogicalData.class.getResource(filename);
+    	if (url == null) {
+    		System.out.println("Resource not found: " + filename);
+    		return;
+    	}
         try {
-            final URL url = new URL(location, file);
             final InputStream is = url.openStream();
             final BufferedReader in = new BufferedReader(new InputStreamReader(is));
             for (int i = 0; i < 365; ++i) {

@@ -43,7 +43,7 @@ public final class Experiment extends Observable
         this.containers = new Vector<>();
         this.treatments = new Vector<>();
         this.groupFactors = new GroupFactor[4];
-        MetroLogicalData.readMetroLogicalData(applet.getDocumentBase(), "refin.txt");
+        MetroLogicalData.readMetroLogicalData("refin.txt");
         this.newApplet = applet;
         final Treatment defaultTreat = this.addTreatment();
         this.addContainer();

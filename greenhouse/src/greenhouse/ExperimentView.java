@@ -34,7 +34,10 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
@@ -353,10 +356,10 @@ public class ExperimentView extends Frame implements ActionListener
     
     public void appletHelp() {
         try {
-            final URL location = new URL(this.site1);
-            this.experiment.newApplet.getAppletContext().showDocument(location, "_blank");
+            final URI location = new URI(this.site1);
+            java.awt.Desktop.getDesktop().browse(location);
         }
-        catch (MalformedURLException e) {
+        catch (URISyntaxException | IOException e) {
             System.out.println("Error" + e);
         }
     }
