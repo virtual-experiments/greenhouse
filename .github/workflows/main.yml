@@ -18,7 +18,8 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build release .zip
-        run: cd greenhouse; . ./build-macos.sh
+        shell: zsh {0}
+        run: cd greenhouse; PATH=$JAVA_HOME_17_X64/bin:$PATH . ./build-macos.sh
 
       - name: Upload release .zip
         uses: actions/upload-artifact@v2.3.0
