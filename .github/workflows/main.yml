@@ -10,7 +10,35 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  windows:
+    runs-on: windows-latest
+
+    steps:
+      # Checks-out the repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v2
+
+      - name: Build release .zip
+        shell: bash
+        run: |
+          cd greenhouse
+          export PATH=$(cygpath -u $JAVA_HOME_17_X64)/bin:$PATH
+          GIF_FILES=$(cd src; find . -name \*.gif)
+          javac -d bin --module-source-path greenhouse=src -m greenhouse
+          for F in $GIF_FILES
+          do
+            cp src/$F bin/greenhouse/$F
+          done
+          jpackage -p bin -m greenhouse/greenhouse.Main --name Greenhouse --type app-image
+          7z a Greenhouse.zip Greenhouse
+
+      - name: Upload release .zip
+        uses: actions/upload-artifact@v2.3.0
+        with:
+          name: Windows release
+          path: greenhouse/Greenhouse.zip
+          if-no-files-found: error
+
+  macos:
     runs-on: macos-latest
 
     steps:
