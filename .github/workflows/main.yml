@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      # Checks-out the repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v2
+
+      - name: Build release .zip
+        run: cd greenhouse; . ./build-macos.sh
+
+      - name: Upload release .zip
+        uses: actions/upload-artifact@v2.3.0
+        with:
+          name: MacOS release
+          path: greenhouse/Greenhouse-macos.zip
+          if-no-files-found: error
