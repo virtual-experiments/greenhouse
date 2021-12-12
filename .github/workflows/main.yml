@@ -60,6 +60,8 @@ jobs:
             cp src/$F bin/greenhouse/$F
           done
           jpackage -p bin -m greenhouse/greenhouse.Main --name Greenhouse --type app-image
+          gcc -o run-Greenhouse -no-pie run-Greenhouse.c
+          cp run-Greenhouse Greenhouse
           tar cJf Greenhouse.txz Greenhouse
 
       - name: Upload release .zip
