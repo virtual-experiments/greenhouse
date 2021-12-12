@@ -38,6 +38,37 @@ jobs:
           path: greenhouse/Greenhouse.zip
           if-no-files-found: error
 
+  ubuntu:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out the repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build release .zip
+        run: |
+          cd greenhouse
+          GIF_FILES=$(cd src; find . -name \*.gif)
+          javac -d bin --module-source-path greenhouse=src -m greenhouse
+          for F in $GIF_FILES
+          do
+            cp src/$F bin/greenhouse/$F
+          done
+          jpackage -p bin -m greenhouse/greenhouse.Main --name Greenhouse --type app-image
+          tar cJf Greenhouse.txz Greenhouse
+
+      - name: Upload release .zip
+        uses: actions/upload-artifact@v2.3.0
+        with:
+          name: Linux release
+          path: greenhouse/Greenhouse.txz
+          if-no-files-found: error
+
   macos:
     runs-on: macos-latest
 
