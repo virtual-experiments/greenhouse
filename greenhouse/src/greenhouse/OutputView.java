@@ -26,11 +26,10 @@ public class OutputView extends Frame
     private TextArea text;
     private final LightweightPanel lowerPanel;
     public static int plantId;
-    private static /* synthetic */ Class class$greenhouse$Applet1;
     
     public OutputView(final Experiment experiment) {
         super("Results");
-        this.setIconImage(Toolkit.getDefaultToolkit().getImage(((OutputView.class$greenhouse$Applet1 != null) ? OutputView.class$greenhouse$Applet1 : (OutputView.class$greenhouse$Applet1 = class$("greenhouse.Applet1"))).getResource("icon.gif")));
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(Applet1.class.getResource("icon.gif")));
         this.setVisible(true);
         this.setLayout(new BorderLayout(5, 5));
         OutputView.plantId = 1;
@@ -65,15 +64,6 @@ public class OutputView extends Frame
         this.add(this.text, "Center");
         this.add(this.lowerPanel, "South");
         this.setBackground(new Color(0, 128, 192));
-    }
-    
-    private static /* synthetic */ Class class$(final String s) {
-        try {
-            return Class.forName(s);
-        }
-        catch (ClassNotFoundException e) {
-            throw new NoClassDefFoundError(e.getMessage());
-        }
     }
     
     private class closeButtonActionListener implements ActionListener

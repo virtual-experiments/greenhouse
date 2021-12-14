@@ -81,14 +81,12 @@ public class ExperimentView extends Frame implements ActionListener
     private MenuItem Mabout;
     private MenuItem MappletHelp;
     public CheckboxMenuItem Mlights;
-    private static /* synthetic */ Class<?> class$greenhouse$NewApplet;
-    private static /* synthetic */ Class<?> class$greenhouse$ExperimentView;
     
     public ExperimentView(final Experiment experiment) {
         super("Greenhouse");
         this.site1 = "http://www.kuleuven.ac.be/ucs/";
         this.mbalk = new MenuBar();
-        this.setIconImage(Toolkit.getDefaultToolkit().getImage(((ExperimentView.class$greenhouse$NewApplet != null) ? ExperimentView.class$greenhouse$NewApplet : (ExperimentView.class$greenhouse$NewApplet = class$("greenhouse.NewApplet"))).getResource("icon.gif")));
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(NewApplet.class.getResource("icon.gif")));
         this.setVisible(true);
         this.setLayout(new BorderLayout(2, 2));
         this.experiment = experiment;
@@ -314,7 +312,7 @@ public class ExperimentView extends Frame implements ActionListener
     }
     
     static {
-        ExperimentView.loadingImage = Toolkit.getDefaultToolkit().getImage(((ExperimentView.class$greenhouse$ExperimentView != null) ? ExperimentView.class$greenhouse$ExperimentView : (ExperimentView.class$greenhouse$ExperimentView = class$("greenhouse.ExperimentView"))).getResource("plant.gif"));
+        ExperimentView.loadingImage = Toolkit.getDefaultToolkit().getImage(ExperimentView.class.getResource("plant.gif"));
         final MediaTracker mediaTracker = new MediaTracker(new Label());
         mediaTracker.addImage(ExperimentView.loadingImage, 1);
         try {
@@ -330,15 +328,6 @@ public class ExperimentView extends Frame implements ActionListener
     public void setCurrentGroupFactorIndex(final int value) {
         if (value <= 4) {
             this.currentGroupFactorIndex = value;
-        }
-    }
-    
-    private static /* synthetic */ Class<?> class$(final String s) {
-        try {
-            return Class.forName(s);
-        }
-        catch (ClassNotFoundException e) {
-            throw new NoClassDefFoundError(e.getMessage());
         }
     }
     

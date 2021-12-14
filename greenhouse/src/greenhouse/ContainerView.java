@@ -1,7 +1,3 @@
-// 
-// Decompiled by Procyon v0.5.36
-// 
-
 package greenhouse;
 
 import java.awt.Color;
@@ -38,7 +34,6 @@ public class ContainerView extends Component implements DragAndDropListener
     private static Image lightsImage;
     private boolean lightson;
     private boolean heating;
-    private static /* synthetic */ Class<?> class$greenhouse$Experiment;
     
     public Container getContainer() {
         return this.container;
@@ -181,22 +176,13 @@ public class ContainerView extends Component implements DragAndDropListener
     }
     
     static {
-        ContainerView.lightsImage = Toolkit.getDefaultToolkit().getImage(((ContainerView.class$greenhouse$Experiment != null) ? ContainerView.class$greenhouse$Experiment : (ContainerView.class$greenhouse$Experiment = class$("greenhouse.Experiment"))).getResource("lights.gif"));
+        ContainerView.lightsImage = Toolkit.getDefaultToolkit().getImage(Experiment.class.getResource("lights.gif"));
         final MediaTracker mediaTracker = new MediaTracker(new Label());
         mediaTracker.addImage(ContainerView.lightsImage, 1);
         try {
             mediaTracker.waitForAll();
         }
         catch (InterruptedException ex) {}
-    }
-    
-    private static /* synthetic */ Class<?> class$(final String s) {
-        try {
-            return Class.forName(s);
-        }
-        catch (ClassNotFoundException e) {
-            throw new NoClassDefFoundError(e.getMessage());
-        }
     }
     
     Plant getPlantAtLocation(final int pixelsX, final int pixelsY) {

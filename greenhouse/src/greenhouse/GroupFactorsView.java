@@ -52,7 +52,6 @@ public class GroupFactorsView extends Container
     private final LightweightPanel groupLabelsPanel;
     Label[] groupLabels;
     TextField[] groupTitels;
-    private static /* synthetic */ Class class$greenhouse$Experiment;
     
     void updateAddGroupFactorButton() {
         this.addGroupFactorButton.setEnabled(this.experiment.getGroupFactorCount() < 4);
@@ -198,22 +197,13 @@ public class GroupFactorsView extends Container
     }
     
     static {
-        helpImage = Toolkit.getDefaultToolkit().getImage(((GroupFactorsView.class$greenhouse$Experiment != null) ? GroupFactorsView.class$greenhouse$Experiment : (GroupFactorsView.class$greenhouse$Experiment = class$("greenhouse.Experiment"))).getResource("help.gif"));
+        helpImage = Toolkit.getDefaultToolkit().getImage(Experiment.class.getResource("help.gif"));
         final MediaTracker mediaTracker = new MediaTracker(new Label());
         mediaTracker.addImage(GroupFactorsView.helpImage, 1);
         try {
             mediaTracker.waitForAll();
         }
         catch (InterruptedException ex) {}
-    }
-    
-    private static /* synthetic */ Class class$(final String s) {
-        try {
-            return Class.forName(s);
-        }
-        catch (ClassNotFoundException e) {
-            throw new NoClassDefFoundError(e.getMessage());
-        }
     }
     
     private void updateGroupFactorsList() {

@@ -19,7 +19,6 @@ public final class DragAndDropManager
     static final Image noImage;
     Component arena;
     private DraggedObject draggedObject;
-    private static /* synthetic */ Class class$draganddrop$DragAndDropManager;
     
     public void mouseDragged(final int x, final int y) {
         this.draggedObject.mouseDragged(x, y);
@@ -46,22 +45,13 @@ public final class DragAndDropManager
     }
     
     static {
-        noImage = Toolkit.getDefaultToolkit().getImage(((DragAndDropManager.class$draganddrop$DragAndDropManager != null) ? DragAndDropManager.class$draganddrop$DragAndDropManager : (DragAndDropManager.class$draganddrop$DragAndDropManager = class$("draganddrop.DragAndDropManager"))).getResource("no.gif"));
+        noImage = Toolkit.getDefaultToolkit().getImage(DragAndDropManager.class.getResource("no.gif"));
         final MediaTracker mediaTracker = new MediaTracker(new Label());
         mediaTracker.addImage(DragAndDropManager.noImage, 1);
         try {
             mediaTracker.waitForAll();
         }
         catch (InterruptedException ex) {}
-    }
-    
-    private static /* synthetic */ Class class$(final String s) {
-        try {
-            return Class.forName(s);
-        }
-        catch (ClassNotFoundException e) {
-            throw new NoClassDefFoundError(e.getMessage());
-        }
     }
     
     public void startDragging(final Component component, final Object object, final Image image, final int imageXFromMouse, final int imageYFromMouse) {
