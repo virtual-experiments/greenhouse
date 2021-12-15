@@ -13,7 +13,21 @@ public class Applet1
     private Experiment experiment;
     
     public String getAppletInfo() {
-        return "Project Name:\tVIRTEX\nApplet Name:\tGreenhouse\nApplet Version:\tVersion 1.6\nProject Promotor:\tProf. Paul Darius\nAuthor(s):\tLiesbeth Lievens\n \tSteve Dufresne\n \tEddie Schrevens\n \tBart Jacobs\nLast Modification:\t17/4/2002\n\t\nCopyright (c) 2001-2002\nKatholieke Universiteit Leuven\nUniversitair Centrum voor Statistiek";
+        return """
+        		Project Name:\tVIRTEX
+        		Applet Name:\tGreenhouse
+        		Applet Version:\tVersion 1.6
+        		Project Promotor:\tProf. Paul Darius
+        		Author(s):\tLiesbeth Lievens
+        		 \tSteve Dufresne
+        		 \tEddie Schrevens
+        		 \tBart Jacobs
+        		Last Modification:\t17/4/2002
+        		\t
+        		Copyright (c) 2001-2002
+        		Katholieke Universiteit Leuven
+        		Universitair Centrum voor Statistiek
+        		""";
     }
     
     public void init() {
