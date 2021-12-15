@@ -29,7 +29,7 @@ public class OutputView extends Frame
     
     public OutputView(final Experiment experiment) {
         super("Results");
-        this.setIconImage(Toolkit.getDefaultToolkit().getImage(Applet1.class.getResource("icon.gif")));
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(OutputView.class.getResource("icon.gif")));
         this.setVisible(true);
         this.setLayout(new BorderLayout(5, 5));
         OutputView.plantId = 1;

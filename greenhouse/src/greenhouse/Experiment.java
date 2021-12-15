@@ -18,7 +18,6 @@ public final class Experiment extends Observable
     private int startMonth;
     private int endMonth;
     private int treatmentIndex;
-    public Applet1 newApplet;
     private final Vector<Container> containers;
     private final Vector<Treatment> treatments;
     private final GroupFactor[] groupFactors;
@@ -38,13 +37,12 @@ public final class Experiment extends Observable
         return i;
     }
     
-    public Experiment(final Applet1 applet) {
+    public Experiment() {
         this.treatmentIndex = 1;
         this.containers = new Vector<>();
         this.treatments = new Vector<>();
         this.groupFactors = new GroupFactor[4];
         MetroLogicalData.readMetroLogicalData("refin.txt");
-        this.newApplet = applet;
         final Treatment defaultTreat = this.addTreatment();
         this.addContainer();
         final Random random = new Random();

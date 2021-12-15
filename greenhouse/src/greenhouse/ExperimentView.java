@@ -10,6 +10,7 @@ import java.awt.CheckboxMenuItem;
 import java.awt.Choice;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.Graphics;
@@ -331,8 +332,24 @@ public class ExperimentView extends Frame implements ActionListener
         }
     }
     
+    private static final String appInfo = """
+    		Project Name:\tVIRTEX
+    		Applet Name:\tGreenhouse
+    		Applet Version:\tVersion 1.6
+    		Project Promotor:\tProf. Paul Darius
+    		Author(s):\tLiesbeth Lievens
+    		 \tSteve Dufresne
+    		 \tEddie Schrevens
+    		 \tBart Jacobs
+    		Last Modification:\t17/4/2002
+    		\t
+    		Copyright (c) 2001-2002
+    		Katholieke Universiteit Leuven
+    		Universitair Centrum voor Statistiek
+    		""";
+    
     private void about() {
-        final AboutPanel helpinhoud = new AboutPanel(this.experiment.newApplet.getAppletInfo());
+        final AboutPanel helpinhoud = new AboutPanel(appInfo);
         final AboutDialog helpframe = new AboutDialog(this, helpinhoud);
         helpframe.pack();
         final Rectangle r = this.drawableSurface();
@@ -448,4 +465,14 @@ public class ExperimentView extends Frame implements ActionListener
             }
         }
     }
+    
+	public static void main(String[] args) {
+		EventQueue.invokeLater(() -> {
+	        Experiment experiment = new Experiment();
+	        final Toolkit mykit = experiment.View.getToolkit();
+	        final Dimension d = mykit.getScreenSize();
+	        experiment.View.setSize(d.width, d.height - 20);
+		});
+	}
+
 }
