@@ -87,7 +87,7 @@ public class ExperimentView extends Frame implements ActionListener
         super("Greenhouse");
         this.site1 = "http://www.kuleuven.ac.be/ucs/";
         this.mbalk = new MenuBar();
-        this.setIconImage(Toolkit.getDefaultToolkit().getImage(NewApplet.class.getResource("icon.gif")));
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(ExperimentView.class.getResource("icon.gif")));
         this.setVisible(true);
         this.setLayout(new BorderLayout(2, 2));
         this.experiment = new Experiment();
