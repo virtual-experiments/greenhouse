@@ -52,7 +52,7 @@ public class ExperimentView extends Frame implements ActionListener
     public static final int plantsPerTrayColumnCTE = 3;
     private static Image loadingImage;
     static GrowingDialog gd;
-    Experiment experiment;
+    final Experiment experiment;
     final ContainerView greenhouse;
     final ContainerView tray;
     private final TreatmentsView treatmentsView;
@@ -83,14 +83,14 @@ public class ExperimentView extends Frame implements ActionListener
     private MenuItem MappletHelp;
     public CheckboxMenuItem Mlights;
     
-    public ExperimentView(final Experiment experiment) {
+    public ExperimentView() {
         super("Greenhouse");
         this.site1 = "http://www.kuleuven.ac.be/ucs/";
         this.mbalk = new MenuBar();
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(NewApplet.class.getResource("icon.gif")));
         this.setVisible(true);
         this.setLayout(new BorderLayout(2, 2));
-        this.experiment = experiment;
+        this.experiment = new Experiment();
         ExperimentView.gd = new GrowingDialog(this, "Growing", ExperimentView.loadingImage);
         experiment.addObserver(new Observer() {
             {
@@ -122,7 +122,7 @@ public class ExperimentView extends Frame implements ActionListener
         (this.trayPanel = new LightweightPanel(new BorderLayout(5, 5))).add(this.trayHeaderPanel, "North");
         this.trayPanel.add(this.tray, "Center");
         this.treatmentsView = new TreatmentsView(this.dragAndDropManager, experiment);
-        this.groupFactorsView = new GroupFactorsView(experiment, this.dragAndDropManager);
+        this.groupFactorsView = new GroupFactorsView(this, this.dragAndDropManager);
         (this.centerPanel = new LightweightPanel()).add(this.greenhouse);
         final GridBagLayout rightPanelLayout = new GridBagLayout();
         this.rightPanel = new LightweightPanel(rightPanelLayout);
@@ -468,10 +468,10 @@ public class ExperimentView extends Frame implements ActionListener
     
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
-	        Experiment experiment = new Experiment();
-	        final Toolkit mykit = experiment.View.getToolkit();
+	        ExperimentView experimentView = new ExperimentView();
+	        final Toolkit mykit = experimentView.getToolkit();
 	        final Dimension d = mykit.getScreenSize();
-	        experiment.View.setSize(d.width, d.height - 20);
+	        experimentView.setSize(d.width, d.height - 20);
 		});
 	}
 

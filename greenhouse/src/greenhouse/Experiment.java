@@ -21,7 +21,6 @@ public final class Experiment extends Observable
     private final Vector<Container> containers;
     private final Vector<Treatment> treatments;
     private final GroupFactor[] groupFactors;
-    public ExperimentView View;
     
     public Container getContainer(final int index) {
         return this.containers.elementAt(index);
@@ -61,7 +60,6 @@ public final class Experiment extends Observable
                 y += 0.67;
             }
         }
-        this.View = new ExperimentView(this);
     }
     
     public GroupFactor addGroupFactor() {

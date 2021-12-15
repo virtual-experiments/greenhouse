@@ -34,6 +34,7 @@ import java.awt.Container;
 
 public class GroupFactorsView extends Container
 {
+	final ExperimentView experimentView;
     final Experiment experiment;
     final DragAndDropManager dragAndDropManager;
     final LightweightPanel groupFactorsPanel;
@@ -69,14 +70,15 @@ public class GroupFactorsView extends Container
         if (index >= 0) {
             this.add(this.groupsPanel, "South");
             this.groupsLabel.setText("Groups for: ");
-            this.groupsTitel.setText(this.experiment.View.getCurrentGroupFactor().getName());
+            this.groupsTitel.setText(this.experimentView.getCurrentGroupFactor().getName());
             this.groupsTitel.setVisible(true);
             this.recreateGroupLabelsPanel();
         }
     }
     
-    public GroupFactorsView(final Experiment experiment, final DragAndDropManager dragAndDropManager) {
-        this.experiment = experiment;
+    public GroupFactorsView(final ExperimentView experimentView, final DragAndDropManager dragAndDropManager) {
+    	this.experimentView = experimentView;
+        this.experiment = experimentView.experiment;
         this.dragAndDropManager = dragAndDropManager;
         final BorderLayout BLayout = new BorderLayout(2, 2);
         this.setLayout(BLayout);
@@ -255,7 +257,7 @@ public class GroupFactorsView extends Container
         }
         
         public void itemStateChanged(final ItemEvent e) {
-            GroupFactorsView.this.experiment.View.setCurrentGroupFactorIndex(Math.max(0, GroupFactorsView.this.groupFactorsList.getSelectedIndex()));
+            GroupFactorsView.this.experimentView.setCurrentGroupFactorIndex(Math.max(0, GroupFactorsView.this.groupFactorsList.getSelectedIndex()));
             GroupFactorsView.this.groupFactorsPanel.add(GroupFactorsView.this.helpPanel, "North");
             GroupFactorsView.this.updateGroupsPanel();
             GroupFactorsView.this.updateAddGroupButton();
