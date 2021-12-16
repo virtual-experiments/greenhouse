@@ -2,7 +2,7 @@
 // Decompiled by Procyon v0.5.36
 // 
 
-package greenhouse;
+package greenhouse.ui;
 
 import java.awt.LayoutManager;
 import java.awt.FlowLayout;

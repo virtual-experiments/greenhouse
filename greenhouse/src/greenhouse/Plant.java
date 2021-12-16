@@ -4,6 +4,8 @@
 
 package greenhouse;
 
+import greenhouse.ui.OutputView;
+
 public final class Plant
 {
     private Container container;

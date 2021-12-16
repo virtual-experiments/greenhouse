@@ -1,4 +1,4 @@
-package greenhouse;
+package greenhouse.ui;
 import java.awt.Graphics;
 import java.awt.Font;
 import java.awt.Color;

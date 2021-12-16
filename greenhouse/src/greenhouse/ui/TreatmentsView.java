@@ -2,7 +2,7 @@
 // Decompiled by Procyon v0.5.36
 // 
 
-package greenhouse;
+package greenhouse.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +18,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.GridLayout;
 import draganddrop.DragAndDropManager;
+import greenhouse.Experiment;
+import greenhouse.Treatment;
+
 import java.awt.TextField;
 import java.awt.Scrollbar;
 import java.awt.Button;

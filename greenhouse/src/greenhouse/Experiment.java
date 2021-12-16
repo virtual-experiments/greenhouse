@@ -88,7 +88,7 @@ public final class Experiment extends Observable
         return this.endDate;
     }
     
-    void treatmentChanged(final int index) {
+    public void treatmentChanged(final int index) {
         this.setChanged();
         this.notifyObservers("Treatment Changed");
     }

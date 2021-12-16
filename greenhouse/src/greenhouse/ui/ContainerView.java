@@ -1,4 +1,4 @@
-package greenhouse;
+package greenhouse.ui;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -15,6 +15,12 @@ import java.awt.image.PixelGrabber;
 
 import draganddrop.DragAndDropListener;
 import draganddrop.DragAndDropManager;
+import greenhouse.Container;
+import greenhouse.Experiment;
+import greenhouse.Group;
+import greenhouse.GroupFactor;
+import greenhouse.Plant;
+import greenhouse.Treatment;
 
 public class ContainerView extends Component implements DragAndDropListener
 {
@@ -176,7 +182,7 @@ public class ContainerView extends Component implements DragAndDropListener
     }
     
     static {
-        ContainerView.lightsImage = Toolkit.getDefaultToolkit().getImage(Experiment.class.getResource("lights.gif"));
+        ContainerView.lightsImage = Toolkit.getDefaultToolkit().getImage(ExperimentView.class.getResource("lights.gif"));
         final MediaTracker mediaTracker = new MediaTracker(new Label());
         mediaTracker.addImage(ContainerView.lightsImage, 1);
         try {

@@ -2,13 +2,17 @@
 // Decompiled by Procyon v0.5.36
 // 
 
-package greenhouse;
+package greenhouse.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.FlowLayout;
 import java.awt.event.WindowEvent;
+
+import greenhouse.Container;
+import greenhouse.Experiment;
+
 import java.awt.event.WindowAdapter;
 import java.awt.BorderLayout;
 import java.awt.Toolkit;

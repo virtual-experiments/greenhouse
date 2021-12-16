@@ -2,7 +2,7 @@
 // Decompiled by Procyon v0.5.36
 // 
 
-package greenhouse;
+package greenhouse.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Button;
@@ -42,6 +42,8 @@ import java.util.Observable;
 import java.util.Observer;
 
 import draganddrop.DragAndDropManager;
+import greenhouse.Experiment;
+import greenhouse.GroupFactor;
 
 public class ExperimentView extends Frame implements ActionListener
 {

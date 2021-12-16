@@ -2,7 +2,7 @@
 // Decompiled by Procyon v0.5.36
 // 
 
-package greenhouse;
+package greenhouse.ui;
 
 import java.awt.Graphics;
 import java.awt.Panel;
@@ -25,6 +25,10 @@ import java.awt.List;
 import java.awt.Button;
 import java.awt.Label;
 import draganddrop.DragAndDropManager;
+import greenhouse.Experiment;
+import greenhouse.Group;
+import greenhouse.GroupFactor;
+
 import java.awt.Container;
 
 public class GroupFactorsView extends Container
@@ -194,7 +198,7 @@ public class GroupFactorsView extends Container
     }
     
     static {
-        helpImage = Toolkit.getDefaultToolkit().getImage(Experiment.class.getResource("help.gif"));
+        helpImage = Toolkit.getDefaultToolkit().getImage(ExperimentView.class.getResource("help.gif"));
         final MediaTracker mediaTracker = new MediaTracker(new Label());
         mediaTracker.addImage(GroupFactorsView.helpImage, 1);
         try {
