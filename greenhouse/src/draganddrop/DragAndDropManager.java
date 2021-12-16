@@ -4,7 +4,6 @@
 
 package draganddrop;
 
-import java.awt.image.ImageObserver;
 import java.awt.Point;
 import java.awt.MediaTracker;
 import java.awt.Label;

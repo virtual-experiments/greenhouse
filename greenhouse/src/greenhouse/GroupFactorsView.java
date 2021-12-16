@@ -4,16 +4,13 @@
 
 package greenhouse;
 
-import java.awt.image.ImageObserver;
 import java.awt.Graphics;
 import java.awt.Panel;
 import java.awt.event.ItemEvent;
 import java.awt.event.ActionEvent;
 import java.awt.MediaTracker;
 import java.awt.Toolkit;
-import java.awt.event.MouseListener;
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.TextEvent;
@@ -21,9 +18,7 @@ import java.awt.event.TextListener;
 import java.awt.event.ItemListener;
 import java.awt.event.ActionListener;
 import java.awt.GridLayout;
-import java.awt.LayoutManager;
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.TextField;
 import java.awt.Image;
 import java.awt.List;
