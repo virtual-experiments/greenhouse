@@ -46,9 +46,9 @@ public class TreatmentsView extends Container
         this.labels = new Label[treatmentCount];
         this.scrollbars = new Scrollbar[treatmentCount];
         this.titels = new TextField[treatmentCount];
-        final LightweightPanel titelPanel = new LightweightPanel(new GridLayout(11, 0));
-        final LightweightPanel labelPanel = new LightweightPanel(new GridLayout(11, 0));
-        final LightweightPanel scrollbarPanel = new LightweightPanel(new GridLayout(11, 0));
+        final LightweightPanel titelPanel = new LightweightPanel(new GridLayout(maxNitrateLevel, 0));
+        final LightweightPanel labelPanel = new LightweightPanel(new GridLayout(maxNitrateLevel, 0));
+        final LightweightPanel scrollbarPanel = new LightweightPanel(new GridLayout(maxNitrateLevel, 0));
         for (int i = 0; i < treatmentCount; ++i) {
             final int index = i;
             final Treatment treatment = this.experiment.getTreatment(i);
@@ -85,7 +85,7 @@ public class TreatmentsView extends Container
                     TreatmentsView.this.experiment.getTreatment(index).setName(TreatmentsView.this.titels[index].getText());
                 }
             });
-            (this.scrollbars[i] = new Scrollbar(0, treatment.getNitrateLevel() / 1, 1, 0, 11)).setBlockIncrement(3);
+            (this.scrollbars[i] = new Scrollbar(0, treatment.getNitrateLevel() / 1, 1, 0, maxNitrateLevel)).setBlockIncrement(3);
             this.scrollbars[i].addAdjustmentListener(new AdjustmentListener() {
                 public void adjustmentValueChanged(final AdjustmentEvent e) {
                     TreatmentsView.this.experiment.getTreatment(index).setNitrateLevel(TreatmentsView.this.scrollbars[index].getValue() * 1);
@@ -161,7 +161,7 @@ public class TreatmentsView extends Container
     }
     
     void updateAddTreatmentButton() {
-        this.addTreatmentButton.setEnabled(this.experiment.getTreatmentCount() < 11);
+        this.addTreatmentButton.setEnabled(this.experiment.getTreatmentCount() < maxNitrateLevel);
     }
     
     private class AddTreatmentButtonActionListener implements ActionListener

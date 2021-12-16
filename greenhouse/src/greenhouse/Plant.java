@@ -96,7 +96,7 @@ public final class Plant
     }
     
     public void grow(final int startday, final int startmonth, final int endday, final int endmonth, final int CO2) {
-        final Init inie = new Init(this.initialWeight * 1.886, this.initialWeight * 0.606, this.initialWeight * 0.021, this.initialWeight * 0.394, this.x, this.y);
+        final Init inie = new Init(this.initialWeight * RSF_N, this.initialWeight * RSF_L, this.initialWeight * RSF_A, this.initialWeight * RSF_S, this.x, this.y);
         inie.general(startday, startmonth, endday, endmonth, CO2, this.treatment.getNitrateLevel());
         this.finalWeight = inie.getWeight();
     }

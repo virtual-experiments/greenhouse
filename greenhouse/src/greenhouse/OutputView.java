@@ -18,7 +18,6 @@ import java.awt.Frame;
 
 public class OutputView extends Frame
 {
-    private Experiment experiment;
     private Button closeButton;
     private TextArea text;
     private final LightweightPanel lowerPanel;
@@ -30,7 +29,6 @@ public class OutputView extends Frame
         this.setVisible(true);
         this.setLayout(new BorderLayout(5, 5));
         OutputView.plantId = 1;
-        this.experiment = experiment;
         this.addWindowListener(new WindowAdapter() {
             {
                 OutputView.this.getClass();

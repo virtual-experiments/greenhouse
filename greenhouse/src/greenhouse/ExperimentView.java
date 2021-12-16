@@ -452,7 +452,6 @@ public class ExperimentView extends Frame implements ActionListener
             if (ExperimentView.this.experiment.getDates(ExperimentView.this.endDateChooser, ExperimentView.this.beginDateChooser, ExperimentView.this.endMonthChooser, ExperimentView.this.beginMonthChooser)) {
                 ExperimentView.this.outputButton.setEnabled(true);
                 ExperimentView.this.errorMsgLabel.setText("                 ");
-                final int plantSize = ExperimentView.this.experiment.getContainer(0).getPlantCount();
                 new Thread(ExperimentView.gd).start();
                 final LetThemGrow growthread = new LetThemGrow();
                 growthread.start();

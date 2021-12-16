@@ -20,15 +20,12 @@ import java.awt.Dialog;
 public class GrowingDialog extends Dialog implements Runnable
 {
     private ImagePanel panel;
-    private Frame parentFrame;
-    
     public void stop() {
         this.dispose();
     }
     
     public GrowingDialog(final Frame parentFrame, final String title, final Image img) {
         super(parentFrame, title, false);
-        this.parentFrame = parentFrame;
         this.add("Center", this.panel = new ImagePanel(img));
         final Panel p = new Panel();
         p.setLayout(new FlowLayout(1, 2, 2));
