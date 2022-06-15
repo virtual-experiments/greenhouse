@@ -9,6 +9,8 @@ import java.util.Observable;
 import java.util.Random;
 import java.util.Vector;
 
+import greenhouse.computations.MetroLogicalData;
+
 public final class Experiment extends Observable
 {
     public static final int maxGroupFactorCountCTE = 4;

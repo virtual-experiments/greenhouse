@@ -4,6 +4,7 @@
 
 package greenhouse;
 
+import greenhouse.computations.Init;
 import greenhouse.ui.OutputView;
 
 public final class Plant
