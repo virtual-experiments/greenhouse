@@ -5,6 +5,8 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  release:
+    types: [published]
 
   # Allows to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -31,12 +33,19 @@ jobs:
           jpackage -p bin -m greenhouse/greenhouse.ui.ExperimentView --name Greenhouse --type app-image
           7z a Greenhouse.zip Greenhouse
 
-      - name: Upload release .zip
+      - name: Upload release .zip as workflow artifact
+        if: github.event_name != 'release'
         uses: actions/upload-artifact@v2.3.0
         with:
           name: Windows release
           path: greenhouse/Greenhouse.zip
           if-no-files-found: error
+
+      - name: Upload release .zip as release asset
+        if: github.event_name == 'release'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload $GITHUB_REF greenhouse/Greenhouse.zip
 
   ubuntu:
     runs-on: ubuntu-latest
@@ -64,12 +73,19 @@ jobs:
           cp run-Greenhouse Greenhouse
           tar cJf Greenhouse.txz Greenhouse
 
-      - name: Upload release .zip
+      - name: Upload release .zip as workflow artifact
+        if: github.event_name != 'release'
         uses: actions/upload-artifact@v2.3.0
         with:
           name: Linux release
           path: greenhouse/Greenhouse.txz
           if-no-files-found: error
+
+      - name: Upload release .zip as release asset
+        if: github.event_name == 'release'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload $GITHUB_REF greenhouse/Greenhouse.txz
 
   macos:
     runs-on: macos-latest
@@ -96,9 +112,16 @@ jobs:
         shell: zsh {0}
         run: cd greenhouse; PATH=$JAVA_HOME_17_X64/bin:$PATH . ./build-macos.sh
 
-      - name: Upload release .zip
+      - name: Upload release .zip as workflow artifact
+        if: github.event_name != 'release'
         uses: actions/upload-artifact@v2.3.0
         with:
           name: MacOS release
           path: greenhouse/Greenhouse-macos.zip
           if-no-files-found: error
+
+      - name: Upload release .zip as release asset
+        if: github.event_name == 'release'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload $GITHUB_REF greenhouse/Greenhouse-macos.zip
