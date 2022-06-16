@@ -45,7 +45,8 @@ jobs:
         if: github.event_name == 'release'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload $GITHUB_REF greenhouse/Greenhouse.zip
+        shell: bash
+        run: gh release upload $GITHUB_REF_NAME greenhouse/Greenhouse.zip
 
   ubuntu:
     runs-on: ubuntu-latest
@@ -85,7 +86,7 @@ jobs:
         if: github.event_name == 'release'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload $GITHUB_REF greenhouse/Greenhouse.txz
+        run: gh release upload $GITHUB_REF_NAME greenhouse/Greenhouse.txz
 
   macos:
     runs-on: macos-latest
@@ -124,4 +125,4 @@ jobs:
         if: github.event_name == 'release'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload $GITHUB_REF greenhouse/Greenhouse-macos.zip
+        run: gh release upload $GITHUB_REF_NAME greenhouse/Greenhouse-macos.zip
