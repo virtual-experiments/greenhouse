@@ -28,7 +28,7 @@ jobs:
           do
             cp src/$F bin/greenhouse/$F
           done
-          jpackage -p bin -m greenhouse/greenhouse.ExperimentView --name Greenhouse --type app-image
+          jpackage -p bin -m greenhouse/greenhouse.ui.ExperimentView --name Greenhouse --type app-image
           7z a Greenhouse.zip Greenhouse
 
       - name: Upload release .zip
@@ -59,7 +59,7 @@ jobs:
           do
             cp src/$F bin/greenhouse/$F
           done
-          jpackage -p bin -m greenhouse/greenhouse.Main --name Greenhouse --type app-image
+          jpackage -p bin -m greenhouse/greenhouse.ui.ExperimentView --name Greenhouse --type app-image
           gcc -o run-Greenhouse -no-pie run-Greenhouse.c
           cp run-Greenhouse Greenhouse
           tar cJf Greenhouse.txz Greenhouse
